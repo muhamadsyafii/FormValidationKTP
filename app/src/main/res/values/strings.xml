@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FormValidation</string>
+    <string name="error_nik">Enter Your NIK</string>
+    <string name="error_name">Enter your Name</string>
+    <string name="error_tempat">Enter your Tempat</string>
+    <string name="error_tanggal">Enter your date</string>
+    <string name="error_alamat">Enter your Alamat</string>
+    <string name="error_rtrw">Enter your RT/RW | ex.002/001</string>
+    <string name="error_kel">Enter your Kelurahan</string>
+    <string name="error_kec">Enter your Kecamatan</string>
+    <string name="error_agama">Enter your Agama</string>
+    <string name="error_status">Enter your Status | ex.BELUM MENIKAH/SUDAH MENIKAH</string>
+    <string name="error_kewarga">Enter youe Kewarganegaraan | ex.WNI/WNA</string>
+    <string name="error_berlaku">Enter your Berlaku | SEUMUR HIDUP/SEMENTARA</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

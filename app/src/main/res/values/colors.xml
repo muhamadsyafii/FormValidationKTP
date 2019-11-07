@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1F54AB</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="greenmedium">#75CBA6</color>
+    <color name="Black">#000000</color>
+    <color name="grey">#7D99AF</color>
+
+    <color name="black">#000000</color>
+    <color name="black_40">#404040</color>
+    <color name="black_33">#333333</color>
+    <color name="black_11">#111111</color>
+    <color name="white">#FFFFFF</color>
+    <color name="pink">#A5257D</color>
+    <color name="grey_bg">#F5F5F5</color>
+    <color name="grey_icon">#8D8D8D</color>
+    <color name="grey_font">#8F8F8F</color>
+    <color name="grey_77">#777777</color>
+    <color name="grey_99">#999999</color>
+    <color name="grey_55">#555555</color>
+    <color name="grey_rounded">#F0F3F7</color>
+    <color name="grey_border">#DEE4EB</color>
+    <color name="grey_dark">#555555</color>
+    <color name="grey_88">#888888</color>
+    <color name="grey_ed">#EDEDED</color>
+    <color name="grey_c7">#C7C7C7</color>
+    <color name="grey_b4">#B4B4B4</color>
+    <color name="grey_70">#707070</color>
+    <color name="grey_65">#656565</color>
+    <color name="grey_9e">#9E9E9E</color>
+    <color name="grey_9a">#9A9A9A</color>
+    <color name="grey_a2">#A2A2A2</color>
+    <color name="grey_dark_border">#E0E0E0</color>
+    <color name="blue_text">#2489BF</color>
+    <color name="yellow">#FFD800</color>
+    <color name="transparent">#00000000</color>
+    <color name="red_google">#D64B39</color>
+    <color name="red">#D51313</color>
+    <color name="blue_facebook">#44649C</color>
+    <color name="green">#03B10A</color>
+
+    <color name="gradient_top">#CC5990</color>
+    <color name="gradient_bottom">#B5348D</color>
+    <color name="soft_pink">#F0D5E7</color>
+
+    <!--Snackbar-->
+    <color name="snackbar_bg">#f44336</color>
+</resources>
