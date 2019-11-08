@@ -1,13 +1,11 @@
 package com.syafii.formvalidation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
 import com.syafii.formvalidation.R;
-import com.syafii.formvalidation.fragment.RegisterFragment;
-import com.syafii.formvalidation.fragment.ResultFragment;
+import com.syafii.formvalidation.fragment.FirstRegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -16,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState== null){
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frameActivity, new RegisterFragment()).commit();}
+                    .replace(R.id.frameActivity, new FirstRegisterFragment()).commit();}
     }
 }

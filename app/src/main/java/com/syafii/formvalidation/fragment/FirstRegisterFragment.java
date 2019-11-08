@@ -5,7 +5,6 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,12 +26,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
-import javax.xml.validation.Validator;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RegisterFragment extends Fragment {
+public class FirstRegisterFragment extends Fragment {
     View view;
 
     //    EditText
@@ -80,15 +77,14 @@ public class RegisterFragment extends Fragment {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 
-
-    public RegisterFragment() {
+    public FirstRegisterFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_register, container, false);
+        view = inflater.inflate(R.layout.fragment_first_register, container, false);
         ButterKnife.bind(this, view);
 
 
@@ -173,7 +169,7 @@ public class RegisterFragment extends Fragment {
         if (!etTempat.getText().toString().isEmpty()) {
             etTempat.setSelection(etTempat.getText().length());
         } else {
-            etTempat.setError(getString(R.string.error_tanggal));
+            etTempat.setError(getString(R.string.error_tempat));
             return false;
         }
         return true;
@@ -209,7 +205,7 @@ public class RegisterFragment extends Fragment {
         if (!rt.isEmpty() && rt.length() == 3) {
             etRt.setSelection(etRt.getText().length());
         } else {
-            etRt.setError(getString(R.string.error_rtrw));
+            etRt.setError(getString(R.string.error_rt));
             return false;
         }
         return true;
@@ -220,8 +216,8 @@ public class RegisterFragment extends Fragment {
         if (!rw.isEmpty() && rw.length() == 3) {
             etRw.setSelection(etRw.getText().length());
         } else {
-            etRw.setError("Masukan angkanya 3 digits");
-            etRw.setError(getString(R.string.error_rtrw));
+            etRw.setError("Insert character length 3 digits");
+            etRw.setError(getString(R.string.error_rt));
             return false;
         }
         return true;
@@ -234,7 +230,7 @@ public class RegisterFragment extends Fragment {
             etKelurahan.setSelection(etKelurahan.getText().length());
         } else {
             etKelurahan.setError(getString(R.string.error_kel));
-            etKelurahan.setError("Huruf harus besar semua");
+            etKelurahan.setError(getString(R.string.error_cap));
 //            etKelurahan.requestFocus();
             return false;
         }
@@ -248,7 +244,7 @@ public class RegisterFragment extends Fragment {
         if (!kec.isEmpty() && Pattern.compile(patternKec).matcher(kec).matches()) {
             etKecamatan.setSelection(etKecamatan.getText().length());
         } else {
-            etKecamatan.setError("Enter your kecamatan");
+            etKecamatan.setError(getString(R.string.error_kec));
             return false;
 
         }
@@ -262,7 +258,7 @@ public class RegisterFragment extends Fragment {
         if (!agama.isEmpty() && Pattern.compile(pAgama).matcher(agama).matches()) {
             etAgama.setSelection(etAgama.getText().length());
         } else {
-            etAgama.setError("Huruf diisi dengan kapitas");
+            etAgama.setError(getString(R.string.error_cap));
             return false;
         }
         return true;
@@ -273,7 +269,7 @@ public class RegisterFragment extends Fragment {
         if (!status.isEmpty()) {
             etStatus.setSelection(etStatus.getText().length());
         } else {
-            etStatus.setError("Masukan status anda");
+            etStatus.setError(getString(R.string.error_status));
             return false;
         }
         return true;
@@ -285,7 +281,7 @@ public class RegisterFragment extends Fragment {
         if (!kewag.isEmpty() && Pattern.compile(pKew).matcher(kewag).matches()) {
             etKewarganegaraan.setSelection(etKewarganegaraan.getText().length());
         } else {
-            etKewarganegaraan.setError("Huruf diisi dengan kapital");
+            etKewarganegaraan.setError(getString(R.string.error_kewarga));
             return false;
         }
         return true;
@@ -349,7 +345,7 @@ public class RegisterFragment extends Fragment {
         }
     }
 
-    public void moveSecondFragment(){
+    public void moveSecondFragment() {
         ResultFragment resultFragment = new ResultFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();

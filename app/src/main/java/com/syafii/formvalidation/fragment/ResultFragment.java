@@ -79,7 +79,7 @@ public class ResultFragment extends Fragment {
     }
 
     private void moveFirstFragment() {
-        RegisterFragment registerFragment = new RegisterFragment();
+        FirstRegisterFragment registerFragment = new FirstRegisterFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.setCustomAnimations(R.anim.anim_right_to_left, R.anim.anim_left_to_right);
