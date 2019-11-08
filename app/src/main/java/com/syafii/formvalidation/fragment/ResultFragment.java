@@ -2,20 +2,18 @@ package com.syafii.formvalidation.fragment;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.syafii.formvalidation.R;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import org.w3c.dom.Text;
+import com.syafii.formvalidation.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,9 +22,9 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class ResultFragment extends Fragment {
-    View view;
+    private View view;
 
-//    BindView
+    //    BindView
     @BindView(R.id.tv_resultNik)
     TextView rNik;
     @BindView(R.id.tv_resultNama)
@@ -63,10 +61,8 @@ public class ResultFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_result, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_result, container, false);
         ButterKnife.bind(this, view);
         onClick();
         return view;
@@ -74,17 +70,22 @@ public class ResultFragment extends Fragment {
 
     private void onClick() {
 
-//        btnEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                moveFirstFragment();
-//            }
-//        });
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveFirstFragment();
+            }
+        });
     }
 
     private void moveFirstFragment() {
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.add(android.R.id.content, new RegisterFragment()).commit();
+        RegisterFragment registerFragment = new RegisterFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setCustomAnimations(R.anim.anim_right_to_left, R.anim.anim_left_to_right);
+        ft.replace(R.id.frameActivity, registerFragment).commit();
+
+
     }
 
 }

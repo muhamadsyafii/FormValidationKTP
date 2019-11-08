@@ -16,6 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState== null){
             getSupportFragmentManager().beginTransaction()
-                    .add(android.R.id.content, new RegisterFragment()).commit();}
+                    .replace(R.id.frameActivity, new RegisterFragment()).commit();}
     }
 }

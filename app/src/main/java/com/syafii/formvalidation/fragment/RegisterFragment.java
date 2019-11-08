@@ -4,6 +4,8 @@ package com.syafii.formvalidation.fragment;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -38,7 +41,7 @@ public class RegisterFragment extends Fragment {
     @BindView(R.id.et_nik)
     EditText etNik;
     @BindView(R.id.et_tempat)
-    EditText etTtl;
+    EditText etTempat;
     @BindView(R.id.et_date)
     EditText etDate;
     @BindView(R.id.et_name)
@@ -75,7 +78,6 @@ public class RegisterFragment extends Fragment {
 
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-    ResultFragment resultFragment = new ResultFragment();
 
 
 
@@ -85,7 +87,7 @@ public class RegisterFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_register, container, false);
         ButterKnife.bind(this, view);
 
@@ -99,10 +101,9 @@ public class RegisterFragment extends Fragment {
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subValidation();
-//                resultForm();
+//                subValidation();
                 closeKeyboard();
-//                moveSecondFragment();
+                moveSecondFragment();
             }
         });
         etDate.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +143,7 @@ public class RegisterFragment extends Fragment {
     private boolean validateNIK() {
         if (!etNik.getText().toString().trim().isEmpty() && etNik.length() == 16) {
             lyNik.setErrorEnabled(false);
+            etNik.setSelection(etNik.getText().length());
             nikErr.setVisibility(View.GONE);
         } else {
             lyNik.setError(getString(R.string.error_nik));
@@ -158,32 +160,32 @@ public class RegisterFragment extends Fragment {
         String patternName = ".*[A-Z].*";
         if (!nama.isEmpty() && Pattern.compile(patternName).matcher(nama).matches()) {
             lyName.setErrorEnabled(false);
+            etNama.setSelection(etNama.getText().length());
         } else {
             lyName.setError(getString(R.string.error_name));
             etNama.setError("Huruf harus besar semua");
-//            etNik.requestFocus();
             return false;
         }
         return true;
     }
 
     private boolean validateTempat() {
-        if (!etTtl.getText().toString().trim().isEmpty()) {
-            etTtl.setFocusable(false);
+        if (!etTempat.getText().toString().isEmpty()) {
+            etTempat.setSelection(etTempat.getText().length());
         } else {
-            etTtl.setError(getString(R.string.error_tanggal));
-//            etDate.requestFocus();
-//            etTtl.requestFocus();
+            etTempat.setError(getString(R.string.error_tanggal));
             return false;
         }
         return true;
     }
 
     private boolean validTanggal() {
-        String date = etDate.getText().toString().trim();
-        String pDate = "^[0-3][0-9]-[0-3][0-9]-(?:[0-9][0-9])?[0-9][0-9]$";
-        if (date.isEmpty() && Pattern.compile(pDate).matcher(date).matches()) {
-            etDate.setFocusable(false);
+        String date = etDate.getText().toString();
+//        String pDate = "^[0-3][0-9]-[0-3][0-9]-(?:[0-9][0-9])?[0-9][0-9]$";
+        Log.e("Tanggal = ", date);
+        if (!date.isEmpty() /*&& Pattern.compile(pDate).matcher(date).matches()*/) {
+            etDate.setError(null);
+            etDate.setSelection(etDate.getText().length());
         } else {
             etDate.setError(getString(R.string.error_tanggal));
             return false;
@@ -193,7 +195,8 @@ public class RegisterFragment extends Fragment {
 
     private boolean validAlamat() {
         if (!etAlamat.getText().toString().trim().isEmpty()) {
-            etAlamat.setFocusable(false);
+            etAlamat.setSelection(etAlamat.getText().length());
+
         } else {
             etAlamat.setError(getString(R.string.error_alamat));
             return false;
@@ -202,9 +205,9 @@ public class RegisterFragment extends Fragment {
     }
 
     private boolean validRt() {
-        String rt = etRt.getText().toString().trim();
+        String rt = etRt.getText().toString();
         if (!rt.isEmpty() && rt.length() == 3) {
-            etRt.setFocusable(false);
+            etRt.setSelection(etRt.getText().length());
         } else {
             etRt.setError(getString(R.string.error_rtrw));
             return false;
@@ -213,9 +216,9 @@ public class RegisterFragment extends Fragment {
     }
 
     private boolean validRw() {
-        String rw = etRw.getText().toString().trim();
+        String rw = etRw.getText().toString();
         if (!rw.isEmpty() && rw.length() == 3) {
-            etRw.setFocusable(false);
+            etRw.setSelection(etRw.getText().length());
         } else {
             etRw.setError("Masukan angkanya 3 digits");
             etRw.setError(getString(R.string.error_rtrw));
@@ -225,10 +228,10 @@ public class RegisterFragment extends Fragment {
     }
 
     private boolean validKelDes() {
-        String kelDes = etKelurahan.getText().toString().trim();
+        String kelDes = etKelurahan.getText().toString();
         String patternKaldes = ".*[A-Z].*";
         if (!kelDes.isEmpty() && Pattern.compile(patternKaldes).matcher(kelDes).matches()) {
-            etKelurahan.setFocusable(false);
+            etKelurahan.setSelection(etKelurahan.getText().length());
         } else {
             etKelurahan.setError(getString(R.string.error_kel));
             etKelurahan.setError("Huruf harus besar semua");
@@ -243,10 +246,9 @@ public class RegisterFragment extends Fragment {
         String patternKec = ".*[A-Z].*";
 
         if (!kec.isEmpty() && Pattern.compile(patternKec).matcher(kec).matches()) {
-            etKecamatan.setFocusable(false);
+            etKecamatan.setSelection(etKecamatan.getText().length());
         } else {
             etKecamatan.setError("Enter your kecamatan");
-//            etKecamatan.requestFocus();
             return false;
 
         }
@@ -254,49 +256,48 @@ public class RegisterFragment extends Fragment {
     }
 
     private boolean validAgama() {
-        String agama = etAgama.getText().toString().trim();
+        String agama = etAgama.getText().toString();
         String pAgama = ".*[A-Z].*";
 
         if (!agama.isEmpty() && Pattern.compile(pAgama).matcher(agama).matches()) {
-            etAgama.setFocusable(false);
+            etAgama.setSelection(etAgama.getText().length());
         } else {
             etAgama.setError("Huruf diisi dengan kapitas");
-//            etAgama.requestFocus();
             return false;
         }
         return true;
     }
 
     private boolean validStatus() {
-        String status = etStatus.getText().toString().trim();
+        String status = etStatus.getText().toString();
         if (!status.isEmpty()) {
-            etStatus.setFocusable(false);
+            etStatus.setSelection(etStatus.getText().length());
         } else {
             etStatus.setError("Masukan status anda");
-//            etStatus.requestFocus();
             return false;
         }
         return true;
     }
 
     private boolean validKew() {
-        String kewag = etKewarganegaraan.getText().toString().trim();
+        String kewag = etKewarganegaraan.getText().toString();
         String pKew = ".*[A-Z].*";
         if (!kewag.isEmpty() && Pattern.compile(pKew).matcher(kewag).matches()) {
-            etKewarganegaraan.setFocusable(false);
+            etKewarganegaraan.setSelection(etKewarganegaraan.getText().length());
         } else {
             etKewarganegaraan.setError("Huruf diisi dengan kapital");
-//            etKewarganegaraan.requestFocus();
             return false;
         }
         return true;
     }
 
     private boolean validBerlaku() {
-        String berlaku = etBerlaku.getText().toString().trim();
-        String regBerlaku = "^[0-3][0-9]-[0-3][0-9]-(?:[0-9][0-9])?[0-9][0-9]$";
-        if (!berlaku.isEmpty() && Pattern.compile(regBerlaku).matcher(berlaku).matches()) {
-            etBerlaku.setFocusable(false);
+        String berlaku = etBerlaku.getText().toString();
+//        String regBerlaku = "^[0-3][0-9]-[0-3][0-9]-(?:[0-9][0-9])?[0-9][0-9]$";
+        Log.e("Berlaku = ", berlaku);
+        if (!berlaku.isEmpty() /*&& Pattern.compile(regBerlaku).matcher(berlaku).matches()*/) {
+//            etBerlaku.setSelection(etBerlaku.getText().length());
+            etBerlaku.setError(null);
         } else {
             etBerlaku.setError("Isi masa berlaku | ex. DD-MM-YYYY");
 //            etBerlaku.requestFocus();
@@ -333,6 +334,7 @@ public class RegisterFragment extends Fragment {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, month, dayOfMonth);
                 etBerlaku.setText(simpleDateFormat.format(newDate.getTime()));
+
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
@@ -348,30 +350,11 @@ public class RegisterFragment extends Fragment {
     }
 
     public void moveSecondFragment(){
+        ResultFragment resultFragment = new ResultFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(android.R.id.content, new ResultFragment()).commit();
-    }
-
-
-    private void resultForm() {
-        String nik = etNik.getText().toString();
-        String nama = etNama.getText().toString();
-        String alamat = etAlamat.getText().toString();
-        String tempat = etTtl.getText().toString();
-        String tanggal = etDate.getText().toString();
-        String kelu = etKelurahan.getText().toString();
-        String rt = etRt.getText().toString();
-        String rw = etRw.getText().toString();
-        String kec = etKecamatan.getText().toString();
-        String agama = etAgama.getText().toString();
-        String status = etStatus.getText().toString();
-        String kewarga = etKewarganegaraan.getText().toString();
-        String berlaku = etBerlaku.getText().toString();
-
-        resultFragment.rNama.setText(nama);
-//    tvNik.setText(nama);
-
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
+        ft.replace(R.id.frameActivity, resultFragment).commit();
 
     }
 
