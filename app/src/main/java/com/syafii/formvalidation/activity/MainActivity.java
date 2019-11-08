@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.syafii.formvalidation.R;
 import com.syafii.formvalidation.fragment.RegisterFragment;
+import com.syafii.formvalidation.fragment.ResultFragment;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -15,6 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState== null){
             getSupportFragmentManager().beginTransaction()
-                    .add(android.R.id.content, new RegisterFragment ()).commit();}
+                    .add(android.R.id.content, new RegisterFragment()).commit();}
     }
 }

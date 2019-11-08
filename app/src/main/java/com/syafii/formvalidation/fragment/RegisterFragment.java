@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.syafii.formvalidation.R;
@@ -73,6 +75,8 @@ public class RegisterFragment extends Fragment {
 
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    ResultFragment resultFragment = new ResultFragment();
+
 
 
     public RegisterFragment() {
@@ -85,6 +89,7 @@ public class RegisterFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_register, container, false);
         ButterKnife.bind(this, view);
 
+
         onClick();
 
         return view;
@@ -95,7 +100,9 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 subValidation();
+//                resultForm();
                 closeKeyboard();
+//                moveSecondFragment();
             }
         });
         etDate.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +120,6 @@ public class RegisterFragment extends Fragment {
             }
         });
     }
-
 
     void subValidation() {
         validateNIK();
@@ -341,5 +347,32 @@ public class RegisterFragment extends Fragment {
         }
     }
 
+    public void moveSecondFragment(){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(android.R.id.content, new ResultFragment()).commit();
+    }
+
+
+    private void resultForm() {
+        String nik = etNik.getText().toString();
+        String nama = etNama.getText().toString();
+        String alamat = etAlamat.getText().toString();
+        String tempat = etTtl.getText().toString();
+        String tanggal = etDate.getText().toString();
+        String kelu = etKelurahan.getText().toString();
+        String rt = etRt.getText().toString();
+        String rw = etRw.getText().toString();
+        String kec = etKecamatan.getText().toString();
+        String agama = etAgama.getText().toString();
+        String status = etStatus.getText().toString();
+        String kewarga = etKewarganegaraan.getText().toString();
+        String berlaku = etBerlaku.getText().toString();
+
+        resultFragment.rNama.setText(nama);
+//    tvNik.setText(nama);
+
+
+    }
 
 }
