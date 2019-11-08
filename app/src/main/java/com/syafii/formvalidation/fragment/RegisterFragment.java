@@ -22,6 +22,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
+import javax.xml.validation.Validator;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -68,6 +70,7 @@ public class RegisterFragment extends Fragment {
     TextInputLayout lyName;
     @BindView(R.id.tev_ernik)
     TextView nikErr;
+
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -173,7 +176,7 @@ public class RegisterFragment extends Fragment {
     private boolean validTanggal() {
         String date = etDate.getText().toString().trim();
         String pDate = "^[0-3][0-9]-[0-3][0-9]-(?:[0-9][0-9])?[0-9][0-9]$";
-        if (!date.isEmpty() && Pattern.compile(pDate).matcher(date).matches()) {
+        if (date.isEmpty() && Pattern.compile(pDate).matcher(date).matches()) {
             etDate.setFocusable(false);
         } else {
             etDate.setError(getString(R.string.error_tanggal));
