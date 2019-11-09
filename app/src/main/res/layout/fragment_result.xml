@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical"
+    android:id="@+id/reultFrament"
     tools:context=".fragment.ResultFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -24,5 +25,382 @@
             android:text="Result Registration Form KTP"
             android:textColor="@android:color/white" />
     </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="NIK"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultNik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Nama"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Tempat, Tanggal Lahir"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/tv_resultTempat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Black"
+                        android:textSize="16dp"
+                        android:visibility="gone"/>
+                    <View
+                        android:layout_marginTop="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_weight="1"
+                        android:background="@color/grey"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp">
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/et_date"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:clickable="false"-->
+                        <!--android:drawableRight="@drawable/ic_date"-->
+                        <!--android:focusable="false"-->
+                        <!--android:hint="DD-MM-YYYY" />-->
+
+                    <TextView
+                        android:id="@+id/tv_resultTanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Black"
+                        android:textSize="16dp"
+                        android:visibility="gone" />
+                    <View
+                        android:layout_marginTop="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_weight="1"
+                        android:background="@color/grey"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Alamat"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultAlamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="RT/RW"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/et_rt"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="Masukan RT"-->
+                        <!--android:inputType="number"-->
+                        <!--android:maxLength="3"-->
+                        <!--android:textColor="@color/Black" />-->
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/tv_resultRT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Black"
+                        android:textSize="16dp"
+                        android:visibility="gone"/>
+                    <View
+                        android:layout_marginTop="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_weight="1"
+                        android:background="@color/grey"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp">
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/et_rw"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:hint="Masukan RW"-->
+                        <!--android:inputType="number"-->
+                        <!--android:maxLength="3"-->
+                        <!--android:textColor="@color/Black" />-->
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/tv_resultRW"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/Black"
+                        android:textSize="16dp"
+                        android:visibility="gone"/>
+                    <View
+                        android:layout_marginTop="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_weight="1"
+                        android:background="@color/grey"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Kelurahan/Desa"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultKelurahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Kecamatan"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultKecamatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Agama"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultAgama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Status"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Kewarganegaraan"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultKewarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Berlaku"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_resultBerlaku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/grey"/>
+
+            <Button
+                android:id="@+id/btn_Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:background="@drawable/rounded_blue"
+                android:gravity="center"
+                android:text="Edit Account"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
