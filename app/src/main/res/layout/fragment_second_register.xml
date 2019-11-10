@@ -1,14 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".fragment.SecondRegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:layout_below="@+id/rl_toolbar"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_white"
+            android:orientation="vertical"
+            android:padding="8dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Alamat"
+        android:textColor="@color/Black"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/et_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Masukan alamat"
+        android:inputType="textLongMessage"
+        android:textColor="@color/Black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="RT/RW"
+        android:textColor="@color/Black"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/et_rt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukan RT"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textColor="@color/Black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/et_rw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukan RW"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textColor="@color/Black" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Kelurahan/Desa"
+        android:textColor="@color/Black"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/et_kelurahan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Masukan kelurahan/desa"
+        android:inputType="textCapCharacters"
+        android:textAllCaps="true"
+        android:textColor="@color/Black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Kecamatan"
+        android:textColor="@color/Black"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/et_kecamatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Masukan kecamatan"
+        android:inputType="textCapCharacters"
+        android:textAllCaps="true"
+        android:textColor="@color/Black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Agama"
+        android:textColor="@color/Black"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/et_agama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Masukan Agama"
+        android:inputType="textCapCharacters"
+        android:textAllCaps="true"
+        android:textColor="@color/Black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Status"
+        android:textColor="@color/Black"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/et_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Masukan Status"
+        android:inputType="textCapCharacters"
+        android:textAllCaps="true"
+        android:textColor="@color/Black" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_above="@id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_a2" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_blue"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:gravity="center"
+            android:text="Next"
+            android:textSize="20dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</RelativeLayout>
