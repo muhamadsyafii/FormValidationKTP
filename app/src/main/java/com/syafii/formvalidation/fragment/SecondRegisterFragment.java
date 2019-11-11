@@ -52,6 +52,16 @@ public class SecondRegisterFragment extends Fragment {
     @BindView(R.id.btn_nextSecond)
     Button btnNextSecond;
 
+//    Variable Global
+
+    String alamat = "";
+    String rt = "";
+    String rw = "";
+    String kelurahan = "";
+    String kecamatan = "";
+
+    User data;
+
 
     public SecondRegisterFragment() {
         // Required empty public constructor
@@ -65,6 +75,8 @@ public class SecondRegisterFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_second_register, container, false);
         ButterKnife.bind(this, view);
 
+        data = (User)getArguments().getSerializable("user");
+
         onClick();
         return view;
     }
@@ -74,17 +86,37 @@ public class SecondRegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
+                ResultFragment resultFragment = new ResultFragment();
+                User user = new User();
+                subValidation();
 
-
-//                subValidation();
-                moveThirdFragment();
+                user.setNik(data.getNik());
+                user.setNama(data.getNama());
+                user.setTempat(data.getTempat());
+                user.setTanggal(data.getTanggal());
+                user.setAlamat(alamat);
+                user.setRt(rt);
+                user.setRw(rw);
+                user.setKelurahan(kelurahan);
+                user.setKecamatan(kecamatan);
+                bundle.putSerializable("user", user);
+                resultFragment.setArguments(bundle);
+                moveThirdFragment(resultFragment);
             }
         });
-
     }
+
+    private void subValidation() {
+        validAlamat();
+        validRt();
+        validRw();
+        validKelDes();
+        validKec();
+    }
+
     private  boolean validAlamat(){
-        String alamat = eAlamat.getText().toString();
-        if (!alamat.isEmpty()){
+        if (!eAlamat.getText().toString().isEmpty()){
+            alamat = eAlamat.getText().toString();
             eAlamat.setSelection(eAlamat.getText().length());
         }else {
             eAlamat.setError(getString(R.string.error_alamat));
@@ -93,8 +125,8 @@ public class SecondRegisterFragment extends Fragment {
         return true;
     }
     private boolean validRt() {
-        String rt = etRt.getText().toString();
-        if (!rt.isEmpty() && rt.length() == 3) {
+        if (!etRt.getText().toString().isEmpty() && etRt.getText().toString().length() == 3) {
+            rt = etRt.getText().toString();
             etRt.setSelection(etRt.getText().length());
         } else {
             etRt.setError(getString(R.string.error_rt));
@@ -104,8 +136,8 @@ public class SecondRegisterFragment extends Fragment {
     }
 
     private boolean validRw() {
-        String rw = eRw.getText().toString();
-        if (!rw.isEmpty() && rw.length() == 3) {
+        if (!eRw.getText().toString().isEmpty() && eRw.getText().toString().length() == 3) {
+            rw = eRw.getText().toString();
             eRw.setSelection(eRw.getText().length());
         } else {
             eRw.setError("Insert character length 3 digits");
@@ -116,9 +148,9 @@ public class SecondRegisterFragment extends Fragment {
     }
 
     private boolean validKelDes() {
-        String kelDes = eKelurahan.getText().toString();
         String patternKaldes = ".*[A-Z].*";
-        if (!kelDes.isEmpty() && Pattern.compile(patternKaldes).matcher(kelDes).matches()) {
+        if (!eKelurahan.getText().toString().isEmpty() && Pattern.compile(patternKaldes).matcher(eKelurahan.getText().toString()).matches()) {
+            kelurahan = eKelurahan.getText().toString();
             eKelurahan.setSelection(eKelurahan.getText().length());
         } else {
             eKelurahan.setError(getString(R.string.error_kel));
@@ -130,10 +162,10 @@ public class SecondRegisterFragment extends Fragment {
     }
 
     private boolean validKec() {
-        String kec = eKecamatan.getText().toString().trim();
         String patternKec = ".*[A-Z].*";
 
-        if (!kec.isEmpty() && Pattern.compile(patternKec).matcher(kec).matches()) {
+        if (!eKecamatan.getText().toString().isEmpty() && Pattern.compile(patternKec).matcher(eKecamatan.getText().toString()).matches()) {
+            kecamatan = eKecamatan.getText().toString();
             eKecamatan.setSelection(eKecamatan.getText().length());
         } else {
             eKecamatan.setError(getString(R.string.error_kec));
@@ -151,11 +183,11 @@ public class SecondRegisterFragment extends Fragment {
         }
     }
 
-    private void moveThirdFragment() {
+    private void moveThirdFragment(ResultFragment resultFragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
-        ft.replace(R.id.frameActivity, new ThirdRegisterFragment()).commit();
+//        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
+        ft.replace(R.id.frameActivity, resultFragment).commit();
     }
 
 }
