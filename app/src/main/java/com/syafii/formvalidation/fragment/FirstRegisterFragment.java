@@ -346,11 +346,11 @@ public class FirstRegisterFragment extends Fragment {
     }
 
     public void moveSecondFragment() {
-        ResultFragment resultFragment = new ResultFragment();
+//        ResultFragment resultFragment = new ResultFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
-        ft.replace(R.id.frameActivity, resultFragment).commit();
+        ft.replace(R.id.frameActivity, new SecondRegisterFragment()).commit();
 
     }
 
