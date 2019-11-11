@@ -2,6 +2,7 @@ package com.syafii.formvalidation.fragment;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.syafii.formvalidation.Model.User;
 import com.syafii.formvalidation.R;
 
 import butterknife.BindView;
@@ -54,6 +56,12 @@ public class ResultFragment extends Fragment {
     @BindView(R.id.btn_Edit)
     Button btnEdit;
 
+    String nik;
+    String nama;
+    String tempat;
+    String tanggal;
+
+
 
     public ResultFragment() {
         // Required empty public constructor
@@ -64,8 +72,21 @@ public class ResultFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_result, container, false);
         ButterKnife.bind(this, view);
+
+        Viewundle();
         onClick();
         return view;
+    }
+
+    private void Viewundle() {
+
+        User user = (User)getArguments().getSerializable("user");
+
+        rNik.setText(user.getNik());
+        rNama.setText(user.getNama());
+        rTempat.setText(user.getTempat());
+        rTanggal.setText(user.getTanggal());
+
     }
 
     private void onClick() {

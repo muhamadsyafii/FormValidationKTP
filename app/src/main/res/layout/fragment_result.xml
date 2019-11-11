@@ -104,19 +104,18 @@
                     android:gravity="center">
 
                     <TextView
-                        android:layout_marginTop="20dp"
                         android:id="@+id/tv_resultTempat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
+                        android:hint="Tempat"
                         android:textSize="16dp"
-                        android:visibility="gone"/>
-                    <View
-                        android:layout_marginTop="12dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="3dp"
-                        android:layout_weight="1"
-                        android:background="@color/grey"/>
+                        android:layout_marginBottom="6dp"/>
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="3dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@color/grey"/>-->
                 </LinearLayout>
 
                 <LinearLayout
@@ -126,28 +125,19 @@
                     android:gravity="center"
                     android:layout_marginLeft="5dp">
 
-                    <!--<EditText-->
-                        <!--android:id="@+id/et_date"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:clickable="false"-->
-                        <!--android:drawableRight="@drawable/ic_date"-->
-                        <!--android:focusable="false"-->
-                        <!--android:hint="DD-MM-YYYY" />-->
-
                     <TextView
                         android:id="@+id/tv_resultTanggal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
                         android:textSize="16dp"
-                        android:visibility="gone" />
-                    <View
-                        android:layout_marginTop="12dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="3dp"
-                        android:layout_weight="1"
-                        android:background="@color/grey"/>
+                        android:layout_marginBottom="6dp"/>
+<!--                    <View-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="3dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@color/grey"/>-->
                 </LinearLayout>
             </LinearLayout>
 
