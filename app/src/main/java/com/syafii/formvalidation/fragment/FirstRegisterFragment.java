@@ -226,7 +226,7 @@ public class FirstRegisterFragment extends Fragment {
 //        ResultFragment resultFragment = new ResultFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
+//        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
         ft.replace(R.id.frameActivity, secondRegisterFragment);
         ft.commit();
 

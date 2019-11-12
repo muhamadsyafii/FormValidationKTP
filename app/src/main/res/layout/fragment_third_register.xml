@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,15 +27,24 @@
                 android:text="Agama"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
-            <EditText
-                android:id="@+id/et_agama"
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="Masukan Agama"
-                android:inputType="textCapCharacters"
-                android:textAllCaps="true"
-                android:textColor="@color/Black" />
+                app:counterEnabled="true"
+                app:counterMaxLength="15">
+
+                <EditText
+                    android:id="@+id/et_agama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukan Agama"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="15"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,15 +54,23 @@
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
-            <EditText
-                android:id="@+id/et_status"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="Masukan Status"
-                android:inputType="textCapCharacters"
-                android:textAllCaps="true"
-                android:textColor="@color/Black" />
+                app:counterEnabled="true"
+                app:counterMaxLength="15">
+
+                <EditText
+                    android:id="@+id/et_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukan Status"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="15"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,7 +79,11 @@
                 android:text="Kewarganegaraan"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
-
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="3"
+                app:counterEnabled="true">
             <EditText
                 android:id="@+id/et_kewarganegaraan"
                 android:layout_width="match_parent"
@@ -69,10 +91,10 @@
                 android:layout_marginTop="5dp"
                 android:hint="Masukan WNI/WNA"
                 android:inputType="textCapCharacters"
-                android:textAllCaps="true"
                 android:maxLength="3"
+                android:textAllCaps="true"
                 android:textColor="@color/Black" />
-
+            </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
