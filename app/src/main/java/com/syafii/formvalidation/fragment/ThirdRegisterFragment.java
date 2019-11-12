@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.syafii.formvalidation.Model.User;
 import com.syafii.formvalidation.R;
@@ -101,6 +102,9 @@ public class ThirdRegisterFragment extends Fragment {
                     bundle.putSerializable("user", user);
                     result.setArguments(bundle);
                     moveResultFragment(result);
+                    Toasty.success(getActivity(), "Berhasil mengisi data", Toasty.LENGTH_SHORT).show();
+                }else{
+                    Toasty.info(getContext(), "Harap diisi dahulu", Toast.LENGTH_SHORT, true).show();
                 }
                 closeKeyboard();
             }

@@ -104,6 +104,7 @@ public class ResultFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 closeFragment();
+
             }
         });
     }
@@ -113,8 +114,7 @@ public class ResultFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
 //        ft.setCustomAnimations(R.anim.anim_right_to_left, R.anim.anim_left_to_right);
-//        ft.replace(R.id.frameActivity, registerFragment).commit();
-        ft.remove(this).commit();
+        ft.replace(R.id.frameActivity, registerFragment).commit();
 
     }
 

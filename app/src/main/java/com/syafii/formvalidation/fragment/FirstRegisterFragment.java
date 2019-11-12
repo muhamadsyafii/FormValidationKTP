@@ -80,8 +80,7 @@ public class FirstRegisterFragment extends Fragment {
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_first_register, container, false);
         ButterKnife.bind(this, view);
-
-
+        closeKeyboard();
         onClick();
 
         return view;
@@ -117,7 +116,8 @@ public class FirstRegisterFragment extends Fragment {
                     mbundle.putSerializable("user", user);
                     second.setArguments(mbundle);
                     moveSecondFragment(second);
-                    Toasty.success(getActivity(), "Berhasil", Toasty.LENGTH_SHORT).show();
+                }else{
+                    Toasty.info(getContext(), "Harap diisi dahulu", Toast.LENGTH_SHORT, true).show();
                 }
                 closeKeyboard();
 
@@ -147,12 +147,13 @@ public class FirstRegisterFragment extends Fragment {
     private boolean validateNIK() {
         if (!etNik.getText().toString().isEmpty() && etNik.length() == 16) {
             nik = etNik.getText().toString();
-            lyNik.setErrorEnabled(false);
+//            lyNik.setErrorEnabled(false);
             etNik.setSelection(etNik.getText().length());
-            nikErr.setVisibility(View.GONE);
+//            nikErr.setVisibility(View.GONE);
         } else {
-            lyNik.setError(getString(R.string.error_nik));
-            nikErr.setVisibility(View.VISIBLE);
+            etNik.setError(getString(R.string.error_nik));
+//            lyNik.setError(getString(R.string.error_nik));
+//            nikErr.setVisibility(View.VISIBLE);
             etNik.requestFocus();
             return false;
         }
@@ -163,10 +164,11 @@ public class FirstRegisterFragment extends Fragment {
 //        String patternName = ".*[A-Z].*";
         if (!etNama.getText().toString().isEmpty()) {
             nama = etNama.getText().toString();
-            lyName.setErrorEnabled(false);
+//            lyName.setErrorEnabled(false);
             etNama.setSelection(etNama.getText().length());
         } else {
-            lyName.setError(getString(R.string.error_name));
+//            lyName.setError(getString(R.string.error_name));
+            etNama.setError(getString(R.string.error_name));
             etNama.setError("Huruf harus besar semua");
             return false;
         }
@@ -224,7 +226,7 @@ public class FirstRegisterFragment extends Fragment {
 //        ResultFragment resultFragment = new ResultFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-//        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
+        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
         ft.replace(R.id.frameActivity, secondRegisterFragment);
         ft.commit();
 
