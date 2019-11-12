@@ -377,7 +377,7 @@
                 android:layout_marginTop="33dp"
                 android:background="@drawable/rounded_blue"
                 android:gravity="center"
-                android:text="Edit Account"
+                android:text="Exit"
                 android:textStyle="bold"
                 android:textColor="@android:color/white" />
 

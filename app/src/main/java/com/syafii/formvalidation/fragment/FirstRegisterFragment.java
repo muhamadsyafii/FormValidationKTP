@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,6 +30,7 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class FirstRegisterFragment extends Fragment {
     View view;
@@ -90,13 +92,14 @@ public class FirstRegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 subValidation();
-                if (!nik.isEmpty()){
-//                    Log.e("Nik :", nik);
-//                    Log.e("Nama :", nama);
-//                    Log.e("Tempat :", tempat);
-//                    Log.e("Tanggal :", tanggal);
+                if (!nik.isEmpty() && !nama.isEmpty() && !tempat.isEmpty() && !tanggal.isEmpty()){
+                    Log.e("Nik :", nik);
+                    Log.e("Nama :", nama);
+                    Log.e("Tempat :", tempat);
+                    Log.e("Tanggal :", tanggal);
 
-                    ResultFragment result = new ResultFragment();
+//                    ResultFragment result = new ResultFragment();
+                    SecondRegisterFragment second = new SecondRegisterFragment();
                     User user = new User();
                     Bundle mbundle = new Bundle();
 
@@ -112,8 +115,9 @@ public class FirstRegisterFragment extends Fragment {
                     user.setTempat(tempat);
                     user.setTanggal(tanggal);
                     mbundle.putSerializable("user", user);
-                    result.setArguments(mbundle);
-                    moveSecondFragment(result);
+                    second.setArguments(mbundle);
+                    moveSecondFragment(second);
+                    Toasty.success(getActivity(), "Berhasil", Toasty.LENGTH_SHORT).show();
                 }
                 closeKeyboard();
 
@@ -125,8 +129,8 @@ public class FirstRegisterFragment extends Fragment {
         etDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateBirth();
                 closeKeyboard();
+                showDateBirth();
             }
         });
     }
@@ -143,7 +147,6 @@ public class FirstRegisterFragment extends Fragment {
     private boolean validateNIK() {
         if (!etNik.getText().toString().isEmpty() && etNik.length() == 16) {
             nik = etNik.getText().toString();
-
             lyNik.setErrorEnabled(false);
             etNik.setSelection(etNik.getText().length());
             nikErr.setVisibility(View.GONE);
@@ -217,13 +220,12 @@ public class FirstRegisterFragment extends Fragment {
         }
     }
 
-    public void moveSecondFragment(ResultFragment resultFragment) {
+    public void moveSecondFragment(SecondRegisterFragment secondRegisterFragment) {
 //        ResultFragment resultFragment = new ResultFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
-        ft.addToBackStack("show");
-        ft.replace(R.id.frameActivity, resultFragment);
+//        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
+        ft.replace(R.id.frameActivity, secondRegisterFragment);
         ft.commit();
 
     }

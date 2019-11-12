@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,8 +90,17 @@ public class SecondRegisterFragment extends Fragment {
                 if (!alamat.isEmpty()
                         && !rt.isEmpty() && !rw.isEmpty()
                         && !kelurahan.isEmpty() && !kecamatan.isEmpty()) {
+
+//                    Cek apakah sudah masuk yang di masukan ke dalam edittext
+                    Log.e("alamat", alamat);
+                    Log.e("rt", rt);
+                    Log.e("rw", rw);
+                    Log.e("kelurahan", kelurahan);
+                    Log.e("kecamatan", kecamatan);
+
+
                     Bundle bundle = new Bundle();
-                    ResultFragment resultFragment = new ResultFragment();
+                    ThirdRegisterFragment third = new ThirdRegisterFragment();
                     User user = new User();
 
                     user.setNik(data.getNik());
@@ -103,9 +113,10 @@ public class SecondRegisterFragment extends Fragment {
                     user.setKelurahan(kelurahan);
                     user.setKecamatan(kecamatan);
                     bundle.putSerializable("user", user);
-                    resultFragment.setArguments(bundle);
-                    moveThirdFragment(resultFragment);
+                    third.setArguments(bundle);
+                    moveThirdFragment(third);
                 }
+                closeKeyboard();
             }
         });
     }
@@ -187,11 +198,13 @@ public class SecondRegisterFragment extends Fragment {
         }
     }
 
-    private void moveThirdFragment(ResultFragment resultFragment) {
+    private void moveThirdFragment(ThirdRegisterFragment thirdRegisterFragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
 //        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
-        ft.replace(R.id.frameActivity, resultFragment).commit();
+        ft.replace(R.id.frameActivity, thirdRegisterFragment).commit();
     }
+
+
 
 }

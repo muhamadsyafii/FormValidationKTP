@@ -2,8 +2,7 @@ package com.syafii.formvalidation.Model;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
-
+public class User  implements Serializable{
     private String nik;
     private String nama;
     private String tempat;

@@ -86,11 +86,15 @@ public class ResultFragment extends Fragment {
         rNama.setText(user.getNama());
         rTempat.setText(user.getTempat());
         rTanggal.setText(user.getTanggal());
-//        rAlamat.setText(user.getAlamat());
-//        rRt.setText(user.getRt());
-//        rRw.setText(user.getRw());
-//        rKelurahan.setText(user.getKelurahan());
-//        rKec.setText(user.getKecamatan());
+        rAlamat.setText(user.getAlamat());
+        rRt.setText(user.getRt());
+        rRw.setText(user.getRw());
+        rKelurahan.setText(user.getKelurahan());
+        rKec.setText(user.getKecamatan());
+        rAgama.setText(user.getAgama());
+        rStatus.setText(user.getStatus());
+        rKewarga.setText(user.getKewarganegaraan());
+        rBerlaku.setText(user.getBerlaku());
 
     }
 
@@ -99,18 +103,18 @@ public class ResultFragment extends Fragment {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveFirstFragment();
+                closeFragment();
             }
         });
     }
 
-    private void moveFirstFragment() {
+    private void closeFragment() {
         FirstRegisterFragment registerFragment = new FirstRegisterFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.anim_right_to_left, R.anim.anim_left_to_right);
-        ft.replace(R.id.frameActivity, registerFragment).commit();
-
+//        ft.setCustomAnimations(R.anim.anim_right_to_left, R.anim.anim_left_to_right);
+//        ft.replace(R.id.frameActivity, registerFragment).commit();
+        ft.remove(this).commit();
 
     }
 
