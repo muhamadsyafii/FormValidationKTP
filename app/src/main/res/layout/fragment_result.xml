@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="NIK"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -58,13 +59,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Nama"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -81,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
 
             <TextView
@@ -89,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Tempat, Tanggal Lahir"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -99,31 +102,32 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:orientation="vertical">
 
                     <TextView
+                        android:layout_marginTop="2dp"
                         android:id="@+id/tv_resultTempat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
                         android:hint="Tempat"
-                        android:textSize="16dp"
-                        android:layout_marginBottom="6dp"/>
-<!--                    <View-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="3dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@color/grey"/>-->
+                        android:textSize="16dp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/darker_gray"/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginTop="2dp"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_marginLeft="5dp">
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_resultTanggal"
@@ -131,13 +135,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
                         android:textSize="16dp"
-                        android:layout_marginBottom="6dp"/>
-<!--                    <View-->
-<!--                        android:layout_marginTop="12dp"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="3dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@color/grey"/>-->
+                        android:hint="Tanggal"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/darker_gray"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -147,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Alamat"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -163,13 +167,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="RT/RW"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -180,50 +185,30 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center">
-
-                    <!--<EditText-->
-                        <!--android:id="@+id/et_rt"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:hint="Masukan RT"-->
-                        <!--android:inputType="number"-->
-                        <!--android:maxLength="3"-->
-                        <!--android:textColor="@color/Black" />-->
-
+                    android:orientation="vertical">
                     <TextView
                         android:layout_marginTop="20dp"
                         android:id="@+id/tv_resultRT"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:hint="RT"
                         android:textColor="@color/Black"
-                        android:textSize="16dp"
-                        android:visibility="gone"/>
+                        android:textSize="16dp"/>
                     <View
-                        android:layout_marginTop="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
                         android:layout_weight="1"
-                        android:background="@color/grey"/>
+                        android:background="@android:color/darker_gray"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:orientation="vertical"
                     android:layout_marginLeft="5dp">
-
-                    <!--<EditText-->
-                        <!--android:id="@+id/et_rw"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:hint="Masukan RW"-->
-                        <!--android:inputType="number"-->
-                        <!--android:maxLength="3"-->
-                        <!--android:textColor="@color/Black" />-->
                     <TextView
                         android:layout_marginTop="20dp"
                         android:id="@+id/tv_resultRW"
@@ -231,13 +216,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/Black"
                         android:textSize="16dp"
-                        android:visibility="gone"/>
+                        android:hint="RW"/>
                     <View
-                        android:layout_marginTop="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
                         android:layout_weight="1"
-                        android:background="@color/grey"/>
+                        android:background="@android:color/darker_gray"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -247,6 +231,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Kelurahan/Desa"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -263,13 +248,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Kecamatan"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -286,13 +272,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Agama"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -309,13 +296,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Status"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -332,13 +320,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Kewarganegaraan"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -355,13 +344,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Berlaku"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
@@ -378,7 +368,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_weight="1"
-                android:background="@color/grey"/>
+                android:background="@android:color/darker_gray"/>
 
             <Button
                 android:id="@+id/btn_Edit"
@@ -388,6 +378,7 @@
                 android:background="@drawable/rounded_blue"
                 android:gravity="center"
                 android:text="Edit Account"
+                android:textStyle="bold"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

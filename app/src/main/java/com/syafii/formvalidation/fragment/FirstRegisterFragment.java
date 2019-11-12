@@ -96,8 +96,7 @@ public class FirstRegisterFragment extends Fragment {
 //                    Log.e("Tempat :", tempat);
 //                    Log.e("Tanggal :", tanggal);
 
-//                    ResultFragment result = new ResultFragment();
-                    SecondRegisterFragment second = new SecondRegisterFragment();
+                    ResultFragment result = new ResultFragment();
                     User user = new User();
                     Bundle mbundle = new Bundle();
 //                    mbundle.putString("nik", nik);
@@ -109,8 +108,8 @@ public class FirstRegisterFragment extends Fragment {
                     user.setTempat(tempat);
                     user.setTanggal(tanggal);
                     mbundle.putSerializable("user", user);
-                    second.setArguments(mbundle);
-                    moveSecondFragment(second);
+                    result.setArguments(mbundle);
+                    moveSecondFragment(result);
                 }
                 closeKeyboard();
 
@@ -224,12 +223,12 @@ public class FirstRegisterFragment extends Fragment {
         }
     }
 
-    public void moveSecondFragment(SecondRegisterFragment secondRegisterFragment) {
+    public void moveSecondFragment(ResultFragment resultFragment) {
 //        ResultFragment resultFragment = new ResultFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-//        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
-        ft.replace(R.id.frameActivity, secondRegisterFragment).commit();
+        ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
+        ft.replace(R.id.frameActivity, resultFragment).commit();
 
     }
 

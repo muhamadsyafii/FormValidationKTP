@@ -85,23 +85,25 @@ public class SecondRegisterFragment extends Fragment {
         btnNextSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                ResultFragment resultFragment = new ResultFragment();
-                User user = new User();
                 subValidation();
+                if (!alamat.isEmpty() && !rt.isEmpty() && !rw.isEmpty() && !kelurahan.isEmpty() && !kecamatan.isEmpty()) {
+                    Bundle bundle = new Bundle();
+                    ResultFragment resultFragment = new ResultFragment();
+                    User user = new User();
 
-                user.setNik(data.getNik());
-                user.setNama(data.getNama());
-                user.setTempat(data.getTempat());
-                user.setTanggal(data.getTanggal());
-                user.setAlamat(alamat);
-                user.setRt(rt);
-                user.setRw(rw);
-                user.setKelurahan(kelurahan);
-                user.setKecamatan(kecamatan);
-                bundle.putSerializable("user", user);
-                resultFragment.setArguments(bundle);
-                moveThirdFragment(resultFragment);
+                    user.setNik(data.getNik());
+                    user.setNama(data.getNama());
+                    user.setTempat(data.getTempat());
+                    user.setTanggal(data.getTanggal());
+                    user.setAlamat(alamat);
+                    user.setRt(rt);
+                    user.setRw(rw);
+                    user.setKelurahan(kelurahan);
+                    user.setKecamatan(kecamatan);
+                    bundle.putSerializable("user", user);
+                    resultFragment.setArguments(bundle);
+                    moveThirdFragment(resultFragment);
+                }
             }
         });
     }

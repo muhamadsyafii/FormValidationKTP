@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="60dp">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -506,36 +506,23 @@
 <!--                android:textColor="@color/Black"-->
 <!--                android:layout_marginBottom="100dp"/>-->
 
+                <Button
+                    android:id="@+id/btn_nextFirst"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_blue"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="center"
+                    android:text="Next"
+                    android:textSize="15dp"
+                    android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>
 
 
-    <LinearLayout
-        android:layout_above="@id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/rounded_blue"
-        android:orientation="vertical">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey_a2" />
-
-        <Button
-            android:id="@+id/btn_nextFirst"
-            android:layout_marginTop="6dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_blue"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:gravity="center"
-            android:text="Next"
-            android:textSize="15dp"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
 
 
 </RelativeLayout>

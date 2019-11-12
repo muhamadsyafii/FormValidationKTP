@@ -86,11 +86,11 @@ public class ResultFragment extends Fragment {
         rNama.setText(user.getNama());
         rTempat.setText(user.getTempat());
         rTanggal.setText(user.getTanggal());
-        rAlamat.setText(user.getAlamat());
-        rRt.setText(user.getRt());
-        rRw.setText(user.getRw());
-        rKelurahan.setText(user.getKelurahan());
-        rKec.setText(user.getKecamatan());
+//        rAlamat.setText(user.getAlamat());
+//        rRt.setText(user.getRt());
+//        rRw.setText(user.getRw());
+//        rKelurahan.setText(user.getKelurahan());
+//        rKec.setText(user.getKecamatan());
 
     }
 
