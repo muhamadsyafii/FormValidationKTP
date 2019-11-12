@@ -86,7 +86,9 @@ public class SecondRegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 subValidation();
-                if (!alamat.isEmpty() && !rt.isEmpty() && !rw.isEmpty() && !kelurahan.isEmpty() && !kecamatan.isEmpty()) {
+                if (!alamat.isEmpty()
+                        && !rt.isEmpty() && !rw.isEmpty()
+                        && !kelurahan.isEmpty() && !kecamatan.isEmpty()) {
                     Bundle bundle = new Bundle();
                     ResultFragment resultFragment = new ResultFragment();
                     User user = new User();

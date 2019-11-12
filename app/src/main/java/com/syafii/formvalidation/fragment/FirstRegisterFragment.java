@@ -99,10 +99,14 @@ public class FirstRegisterFragment extends Fragment {
                     ResultFragment result = new ResultFragment();
                     User user = new User();
                     Bundle mbundle = new Bundle();
+
+//                    Manual
 //                    mbundle.putString("nik", nik);
 //                    mbundle.putString("nama", nama);
 //                    mbundle.putString("tempat", tempat);
 //                    mbundle.putString("tanggal", tanggal);
+
+//                    with model
                     user.setNik(nik);
                     user.setNama(nama);
                     user.setTempat(tempat);
@@ -139,6 +143,7 @@ public class FirstRegisterFragment extends Fragment {
     private boolean validateNIK() {
         if (!etNik.getText().toString().isEmpty() && etNik.length() == 16) {
             nik = etNik.getText().toString();
+
             lyNik.setErrorEnabled(false);
             etNik.setSelection(etNik.getText().length());
             nikErr.setVisibility(View.GONE);
@@ -189,17 +194,6 @@ public class FirstRegisterFragment extends Fragment {
         }
         return true;
     }
-
-//    private boolean validAlamat() {
-//        if (!etAlamat.getText().toString().trim().isEmpty()) {
-//            etAlamat.setSelection(etAlamat.getText().length());
-//
-//        } else {
-//            etAlamat.setError(getString(R.string.error_alamat));
-//            return false;
-//        }
-//        return true;
-//    }
     private void showDateBirth() {
 //
         Calendar calendar = Calendar.getInstance();
@@ -228,7 +222,9 @@ public class FirstRegisterFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.setCustomAnimations(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
-        ft.replace(R.id.frameActivity, resultFragment).commit();
+        ft.addToBackStack("show");
+        ft.replace(R.id.frameActivity, resultFragment);
+        ft.commit();
 
     }
 
