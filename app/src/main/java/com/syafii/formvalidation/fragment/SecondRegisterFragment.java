@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.syafii.formvalidation.Model.User;
@@ -50,6 +53,18 @@ public class SecondRegisterFragment extends Fragment {
     @BindView(R.id.et_kecamatan)
     EditText eKecamatan;
 
+    // Error Text View
+    @BindView(R.id.tv_errorAlamat)
+    TextView tv_errorAlamat;
+    @BindView(R.id.tv_errorRt)
+    TextView tv_errorRt;
+    @BindView(R.id.tv_errorRw)
+    TextView tv_errorRw;
+    @BindView(R.id.tv_errorKelurahan)
+    TextView tv_errorKel;
+    @BindView(R.id.tv_errorKecamatan)
+    TextView tv_errorKec;
+
     //  Button
     @BindView(R.id.btn_nextSecond)
     Button btnNextSecond;
@@ -78,7 +93,7 @@ public class SecondRegisterFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         data = (User)getArguments().getSerializable("user");
-
+        validasiEditText();
         onClick();
         return view;
     }
@@ -172,7 +187,7 @@ public class SecondRegisterFragment extends Fragment {
             eKelurahan.setSelection(eKelurahan.getText().length());
         } else {
             eKelurahan.setError(getString(R.string.error_kel));
-            eKelurahan.setError(getString(R.string.error_cap));
+//            eKelurahan.setError(getString(R.string.error_cap));
             eKelurahan.requestFocus();
             return false;
         }
@@ -199,6 +214,94 @@ public class SecondRegisterFragment extends Fragment {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    private void validasiEditText() {
+        tv_errorAlamat.setVisibility(View.VISIBLE);
+        eAlamat.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validAlamat();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorAlamat.setText(0 + s.toString().length() + "/50");
+            }
+        });
+        tv_errorRt.setVisibility(View.VISIBLE);
+        etRt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validRt();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorRt.setText(0 + s.toString().length() + "/3");
+            }
+        });
+        tv_errorRw.setVisibility(View.VISIBLE);
+        eRw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validRw();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorRw.setText(0 + s.toString().length() + "/3");
+            }
+        });
+        tv_errorKel.setVisibility(View.VISIBLE);
+        eKelurahan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validKelDes();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorKel.setText(0 + s.toString().length() + "/35");
+            }
+        });
+        tv_errorKec.setVisibility(View.VISIBLE);
+        eKecamatan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validKec();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorKec.setText(0 + s.toString().length() + "/35");
+            }
+        });
     }
 
     private void moveThirdFragment(ThirdRegisterFragment thirdRegisterFragment) {

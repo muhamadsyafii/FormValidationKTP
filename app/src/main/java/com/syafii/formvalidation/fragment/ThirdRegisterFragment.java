@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.syafii.formvalidation.Model.User;
@@ -46,6 +49,16 @@ public class ThirdRegisterFragment extends Fragment {
     @BindView(R.id.et_berlaku)
     EditText eBerlaku;
 
+    // TextView Error
+    @BindView(R.id.tv_errorAgama)
+    TextView tv_errorAgama;
+    @BindView(R.id.tv_errorStatus)
+    TextView tv_errorStatus;
+    @BindView(R.id.tv_errorKewarga)
+    TextView tv_errorKewarga;
+    @BindView(R.id.tv_errorBerlaku)
+    TextView tv_errorBerlaku;
+
     //  Button
     @BindView(R.id.btn_nextThird)
     Button btnThird;
@@ -72,6 +85,7 @@ public class ThirdRegisterFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         data = (User)getArguments().getSerializable("user");
+        validasiEditText();
         onClick();
         return view;
     }
@@ -130,7 +144,7 @@ public class ThirdRegisterFragment extends Fragment {
 
     private boolean validAgama() {
         String pAgama = ".*[A-Z].*";
-        if (!eAgama.getText().toString().isEmpty() && Pattern.compile(pAgama).matcher(eKewarga.getText().toString()).matches()) {
+        if (!eAgama.getText().toString().isEmpty() && Pattern.compile(pAgama).matcher(eAgama.getText().toString()).matches()) {
             agama = eAgama.getText().toString();
             eAgama.setSelection(eAgama.getText().length());
         } else {
@@ -175,6 +189,78 @@ public class ThirdRegisterFragment extends Fragment {
             return false;
         }
         return true;
+    }
+
+    private void validasiEditText() {
+        tv_errorAgama.setVisibility(View.VISIBLE);
+        eAgama.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validAgama();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorAgama.setVisibility(View.GONE);
+
+            }
+        });
+        tv_errorStatus.setVisibility(View.VISIBLE);
+        eStatus.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validStatus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorStatus.setVisibility(View.GONE);
+            }
+        });
+        tv_errorKewarga.setVisibility(View.VISIBLE);
+        eKewarga.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validKew();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorKewarga.setText(0 + s.toString().length() + "/3");
+            }
+        });
+        tv_errorBerlaku.setVisibility(View.VISIBLE);
+        eKewarga.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validKew();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorBerlaku.setVisibility(View.GONE);
+            }
+        });
     }
 
     private void showDateValid() {

@@ -57,20 +57,26 @@
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:counterEnabled="true"
-                app:counterMaxLength="50">
             <EditText
                 android:id="@+id/et_alamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:hint="Masukan alamat"
+                android:maxLength="50"
                 android:inputType="textLongMessage"
                 android:textColor="@color/Black" />
-            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_errorAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -116,6 +122,40 @@
 
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/tv_errorRt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/requitment_text"
+                        android:textColorHint="@color/red"
+                        android:textSize="10dp"
+                        android:layout_marginLeft="6dp"
+                        android:gravity="left"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/tv_errorRw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/requitment_text"
+                        android:textColorHint="@color/red"
+                        android:textSize="10dp"
+                        android:layout_marginLeft="6dp"
+                        android:gravity="left"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -133,8 +173,18 @@
                 android:hint="Masukan kelurahan/desa"
                 android:inputType="textCapCharacters"
                 android:textAllCaps="true"
+                android:maxLength="35"
                 android:textColor="@color/Black" />
-
+            <TextView
+                android:id="@+id/tv_errorKelurahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:visibility="gone" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -142,6 +192,7 @@
                 android:text="Kecamatan"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
+
 
             <EditText
                 android:id="@+id/et_kecamatan"
@@ -151,13 +202,24 @@
                 android:hint="Masukan kecamatan"
                 android:inputType="textCapCharacters"
                 android:textAllCaps="true"
+                android:maxLength="35"
                 android:textColor="@color/Black" />
+            <TextView
+                android:id="@+id/tv_errorKecamatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:visibility="gone" />
                 <Button
                     android:id="@+id/btn_nextSecond"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/rounded_blue"
                     android:gravity="center"

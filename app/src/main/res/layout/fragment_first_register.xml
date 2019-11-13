@@ -57,33 +57,27 @@
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ly_nik"
+            <EditText
+                android:id="@+id/et_nik"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:counterEnabled="true"
-                app:counterMaxLength="16">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Masukan NIK"
+                android:inputType="number"
+                android:maxLength="16"
+                android:textColor="@color/Black"
+                android:textColorHint="@color/grey" />
 
-                <EditText
-                    android:id="@+id/et_nik"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="Masukan NIK"
-                    android:inputType="number"
-                    android:maxLength="16"
-                    android:textColor="@color/Black"
-                    android:textColorHint="@color/grey" />
-
-                <TextView
-                    android:id="@+id/tev_ernik"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="9dp"
-                    android:text="*Plase enter your NIK"
-                    android:textColor="@color/red"
-                    android:visibility="gone" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_errorNik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,24 +87,36 @@
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ly_name"
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/ly_name"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:counterEnabled="true"-->
+            <!--                app:counterMaxLength="30">-->
+
+            <EditText
+                android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:counterEnabled="true"
-                app:counterMaxLength="30">
+                android:layout_marginTop="5dp"
+                android:hint="Masukan Nama"
+                android:inputType="textCapCharacters"
+                android:maxLength="30"
+                android:textAllCaps="false"
+                android:textColor="@color/Black"
+                android:textColorHint="@color/grey" />
 
-                <EditText
-                    android:id="@+id/et_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="Masukan Nama"
-                    android:inputType="textCapCharacters"
-                    android:textAllCaps="false"
-                    android:textColor="@color/Black"
-                    android:textColorHint="@color/grey" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_errorNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:visibility="gone" />
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
             <TextView
@@ -123,9 +129,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="10dp">
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -136,8 +141,9 @@
                     <EditText
                         android:id="@+id/et_tempat"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:hint="Tempat"
+                        android:maxLength="30"
                         android:inputType="textCapCharacters"
                         android:textColor="@color/Black" />
                 </LinearLayout>
@@ -159,12 +165,22 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tv_errorTempat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:visibility="gone" />
+
             <Button
                 android:id="@+id/btn_nextFirst"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginRight="2dp"
                 android:background="@drawable/rounded_blue"
                 android:gravity="center"

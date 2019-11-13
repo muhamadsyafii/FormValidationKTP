@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FormValidation</string>
-    <string name="error_nik">Enter Your NIK</string>
+    <string name="requitment_text">*Wajib diisi</string>
+    <string name="error_nik">Enter your NIK length 16 digits</string>
     <string name="error_name">Enter your Name</string>
     <string name="error_tempat">Enter your Tempat</string>
     <string name="error_tanggal">Enter your date</string>

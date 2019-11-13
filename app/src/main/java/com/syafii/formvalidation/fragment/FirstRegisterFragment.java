@@ -4,6 +4,8 @@ package com.syafii.formvalidation.fragment;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,18 +17,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.textfield.TextInputLayout;
 import com.syafii.formvalidation.Model.User;
 import com.syafii.formvalidation.R;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,12 +53,12 @@ public class FirstRegisterFragment extends Fragment {
     @BindView(R.id.tv_nik)
     TextView tvNik;
     //    TextInputLayput
-    @BindView(R.id.ly_nik)
-    TextInputLayout lyNik;
-    @BindView(R.id.ly_name)
-    TextInputLayout lyName;
-    @BindView(R.id.tev_ernik)
-    TextView nikErr;
+    @BindView(R.id.tv_errorNik)
+    TextView tv_errorNik;
+    @BindView(R.id.tv_errorNama)
+    TextView tv_errorNama;
+    @BindView(R.id.tv_errorTempat)
+    TextView tv_errorTempat;
 
 //    String nya, ini yang di sebut global variable
 
@@ -66,7 +66,6 @@ public class FirstRegisterFragment extends Fragment {
     String nama = "";
     String tempat = "";
     String tanggal = "";
-
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 
@@ -80,11 +79,11 @@ public class FirstRegisterFragment extends Fragment {
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_first_register, container, false);
         ButterKnife.bind(this, view);
-        closeKeyboard();
+        validasiEditText();
         onClick();
-
         return view;
     }
+
 
     private void onClick() {
         btnReg.setOnClickListener(new View.OnClickListener() {
@@ -135,6 +134,7 @@ public class FirstRegisterFragment extends Fragment {
         });
     }
 
+
     private void subValidation() {
         validateNIK();
         validateNama();
@@ -147,13 +147,10 @@ public class FirstRegisterFragment extends Fragment {
     private boolean validateNIK() {
         if (!etNik.getText().toString().isEmpty() && etNik.length() == 16) {
             nik = etNik.getText().toString();
-//            lyNik.setErrorEnabled(false);
+            tv_errorNik.setError(null);
             etNik.setSelection(etNik.getText().length());
-//            nikErr.setVisibility(View.GONE);
         } else {
             etNik.setError(getString(R.string.error_nik));
-//            lyNik.setError(getString(R.string.error_nik));
-//            nikErr.setVisibility(View.VISIBLE);
             etNik.requestFocus();
             return false;
         }
@@ -164,12 +161,9 @@ public class FirstRegisterFragment extends Fragment {
 //        String patternName = ".*[A-Z].*";
         if (!etNama.getText().toString().isEmpty()) {
             nama = etNama.getText().toString();
-//            lyName.setErrorEnabled(false);
             etNama.setSelection(etNama.getText().length());
         } else {
-//            lyName.setError(getString(R.string.error_name));
             etNama.setError(getString(R.string.error_name));
-            etNama.setError("Huruf harus besar semua");
             return false;
         }
         return true;
@@ -199,8 +193,84 @@ public class FirstRegisterFragment extends Fragment {
         }
         return true;
     }
+
+    private void validasiEditText(){
+        tv_errorNik.setVisibility(View.VISIBLE);
+        etNik.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validateNIK();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorNik.setText(0 + s.toString().length() + "/16");
+            }
+        });
+        tv_errorNama.setVisibility(View.VISIBLE);
+        etNama.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validateNama();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorNama.setText(0 + s.toString().length() + "/30");
+            }
+        });
+        tv_errorTempat.setVisibility(View.VISIBLE);
+        etTempat.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validateTempat();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tv_errorTempat.setText(0 + s.toString().length() + "/30");
+
+            }
+        });
+        etDate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if (etDate == null){
+                    etDate.setError(getString(R.string.error_tanggal));
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validateTempat();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!etDate.getText().toString().isEmpty()) {
+                    etDate.setError(null);
+
+                }
+            }
+        });
+    }
     private void showDateBirth() {
-//
+
         Calendar calendar = Calendar.getInstance();
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
@@ -214,6 +284,7 @@ public class FirstRegisterFragment extends Fragment {
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
+
     private void closeKeyboard() {
         View view = this.getActivity().getCurrentFocus();
         if (view != null) {

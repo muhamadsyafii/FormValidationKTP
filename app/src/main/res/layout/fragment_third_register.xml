@@ -28,23 +28,28 @@
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+
+            <EditText
+                android:id="@+id/et_agama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:counterEnabled="true"
-                app:counterMaxLength="15">
+                android:layout_marginTop="5dp"
+                android:hint="Masukan Agama"
+                android:inputType="textCapCharacters"
+                android:maxLength="15"
+                android:textAllCaps="true"
+                android:textColor="@color/Black" />
 
-                <EditText
-                    android:id="@+id/et_agama"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="Masukan Agama"
-                    android:inputType="textCapCharacters"
-                    android:maxLength="15"
-                    android:textAllCaps="true"
-                    android:textColor="@color/Black" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_errorAgama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -54,23 +59,28 @@
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+
+            <EditText
+                android:id="@+id/et_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:counterEnabled="true"
-                app:counterMaxLength="15">
+                android:layout_marginTop="5dp"
+                android:hint="Masukan Status"
+                android:inputType="textCapCharacters"
+                android:maxLength="15"
+                android:textAllCaps="true"
+                android:textColor="@color/Black" />
 
-                <EditText
-                    android:id="@+id/et_status"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="Masukan Status"
-                    android:inputType="textCapCharacters"
-                    android:maxLength="15"
-                    android:textAllCaps="true"
-                    android:textColor="@color/Black" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_errorStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:visibility="visible" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,11 +89,7 @@
                 android:text="Kewarganegaraan"
                 android:textColor="@color/Black"
                 android:textSize="16dp" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:counterMaxLength="3"
-                app:counterEnabled="true">
+
             <EditText
                 android:id="@+id/et_kewarganegaraan"
                 android:layout_width="match_parent"
@@ -94,7 +100,17 @@
                 android:maxLength="3"
                 android:textAllCaps="true"
                 android:textColor="@color/Black" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_errorKewarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:visibility="visible" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,12 +131,23 @@
                 android:textAllCaps="true"
                 android:textColor="@color/Black" />
 
+            <TextView
+                android:id="@+id/tv_errorBerlaku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/requitment_text"
+                android:textColorHint="@color/red"
+                android:textSize="10dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="left"
+                android:visibility="visible" />
+
             <Button
                 android:id="@+id/btn_nextThird"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginRight="2dp"
                 android:background="@drawable/rounded_blue"
                 android:gravity="center"
