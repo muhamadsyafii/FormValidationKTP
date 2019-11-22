@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.syafii.formvalidation.R;
 import com.syafii.formvalidation.fragment.FirstRegisterFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

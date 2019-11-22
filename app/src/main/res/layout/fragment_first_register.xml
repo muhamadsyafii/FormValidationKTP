@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fragment.FirstRegisterFragment">
 
+
     <RelativeLayout
         android:id="@+id/rl_toolbar"
         android:layout_width="match_parent"
@@ -165,15 +166,40 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_errorTempat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:hint="@string/requitment_text"
-                android:textColorHint="@color/red"
-                android:textSize="10dp"
-                android:visibility="gone" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/tv_errorTempat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:hint="@string/requitment_text"
+                        android:textColorHint="@color/red"
+                        android:textSize="10dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/tv_errorTanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:hint="@string/requitment_text"
+                        android:textColorHint="@color/red"
+                        android:textSize="10dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+
 
             <Button
                 android:id="@+id/btn_nextFirst"

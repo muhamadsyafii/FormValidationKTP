@@ -39,7 +39,7 @@ public class FirstRegisterFragment extends Fragment {
     @BindView(R.id.btn_nextFirst)
     Button btnReg;
 
-//    Button
+    //    Button
     @BindView(R.id.et_nik)
     EditText etNik;
     @BindView(R.id.et_tempat)
@@ -59,6 +59,8 @@ public class FirstRegisterFragment extends Fragment {
     TextView tv_errorNama;
     @BindView(R.id.tv_errorTempat)
     TextView tv_errorTempat;
+    @BindView(R.id.tv_errorTanggal)
+    TextView tv_errorTanggal;
 
 //    String nya, ini yang di sebut global variable
 
@@ -69,14 +71,13 @@ public class FirstRegisterFragment extends Fragment {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 
-
     public FirstRegisterFragment() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_first_register, container, false);
         ButterKnife.bind(this, view);
         validasiEditText();
@@ -90,7 +91,7 @@ public class FirstRegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 subValidation();
-                if (!nik.isEmpty() && !nama.isEmpty() && !tempat.isEmpty() && !tanggal.isEmpty()){
+                if (!nik.isEmpty() && !nama.isEmpty() && !tempat.isEmpty() && !tanggal.isEmpty()) {
                     Log.e("Nik :", nik);
                     Log.e("Nama :", nama);
                     Log.e("Tempat :", tempat);
@@ -115,12 +116,10 @@ public class FirstRegisterFragment extends Fragment {
                     mbundle.putSerializable("user", user);
                     second.setArguments(mbundle);
                     moveSecondFragment(second);
-                }else{
+                } else {
                     Toasty.info(getContext(), "Harap diisi dahulu", Toast.LENGTH_SHORT, true).show();
                 }
                 closeKeyboard();
-
-
 
 
             }
@@ -194,14 +193,13 @@ public class FirstRegisterFragment extends Fragment {
         return true;
     }
 
-    private void validasiEditText(){
+    private void validasiEditText() {
         tv_errorNik.setVisibility(View.VISIBLE);
         etNik.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 validateNIK();
@@ -216,7 +214,6 @@ public class FirstRegisterFragment extends Fragment {
         etNama.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -247,12 +244,13 @@ public class FirstRegisterFragment extends Fragment {
 
             }
         });
+        tv_errorTanggal.setVisibility(View.VISIBLE);
         etDate.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if (etDate == null){
-                    etDate.setError(getString(R.string.error_tanggal));
-                }
+//                if (etDate == null) {
+//                    etDate.setError(getString(R.string.error_tanggal));
+//                }
             }
 
             @Override
@@ -264,11 +262,13 @@ public class FirstRegisterFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 if (!etDate.getText().toString().isEmpty()) {
                     etDate.setError(null);
+                    tv_errorTanggal.setVisibility(View.GONE);
 
                 }
             }
         });
     }
+
     private void showDateBirth() {
 
         Calendar calendar = Calendar.getInstance();
